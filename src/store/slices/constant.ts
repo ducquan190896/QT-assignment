@@ -1,0 +1,1 @@
+export const BASE_URL : string = "https://api.open-meteo.com/v1/forecast?latitude=65.0124&longitude=25.4682"
