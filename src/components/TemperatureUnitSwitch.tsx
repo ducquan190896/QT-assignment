@@ -1,0 +1,70 @@
+import React, { useState } from 'react'
+import { Button, Menu, MenuItem } from '@mui/material';
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { TemperatureUnit } from '../store/slices/slice.type';
+
+interface SwitchProps {
+    temperatureUnit: string,
+    setTemperatureUnit: React.Dispatch<React.SetStateAction<string>>
+}
+
+const TemperatureUnitSwitch = ({temperatureUnit, setTemperatureUnit} : SwitchProps) => {
+    const [isOpen, setOpen] = useState<boolean>(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+    const handleOpenBtn = (event: React.MouseEvent<HTMLElement>): void => {
+        setAnchorEl(event.currentTarget);
+        setOpen(true);
+      };
+    
+    const handleCloseBtn = (): void => {
+        setOpen(false);
+    };
+
+    const changeTemperatureUnit = (temperature: string): void => {
+        setTemperatureUnit(temperature);
+        console.log(temperature)
+        setOpen(false);
+    };
+
+  return (
+    <div className="absolute top-5 right-5 bg-white  rounded-lg">
+        <Button
+            size="small"
+            color="success"
+            variant="outlined"
+            endIcon={isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+            onClick={handleOpenBtn}
+        >
+          {temperatureUnit}
+        </Button>
+        <Menu
+          open={isOpen}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          anchorEl={anchorEl}
+          onClose={handleCloseBtn}
+          className='mt-4'
+        >
+          <MenuItem
+            onClick={() => {
+                changeTemperatureUnit(TemperatureUnit.Celsius);
+            }}
+          >
+            Celsius
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+                changeTemperatureUnit(TemperatureUnit.Fahrenheit);
+            }}
+          >
+            Fahrenheit
+          </MenuItem>
+        </Menu>
+      </div>
+  )
+}
+
+export default TemperatureUnitSwitch
