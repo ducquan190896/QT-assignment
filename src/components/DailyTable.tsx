@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { DailyObj, TemperatureObj } from '../store/slices/slice.type'
 import DayCard from './DayCard'
-import { minMaxExtractor } from '../utils/minMaxExtractor'
+
 
 interface DailyTableProps  {
     days: DailyObj[],
@@ -10,11 +10,9 @@ interface DailyTableProps  {
 }
 
 const DailyTable = ({days, selectedDay, setIsSelectedDay}: DailyTableProps) => {
-   const tempObj : TemperatureObj = minMaxExtractor(days);
-   console.log(tempObj)
     
   return (
-    <div className=' my-8  bg-gray-200 flex flex-row items-end justify-end'>
+    <div className=' my-8 w-2/3 bg-red-200 flex flex-row items-end '>
         {days?.length > 0 && days.map((day: DailyObj, index) => {
             return (
                 <DayCard selectedDay={selectedDay} day={day} key={index} setIsSelectedDay={setIsSelectedDay}></DayCard>

@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {TemperatureUnit } from '../store/slices/slice.type';
 import DailyTable from '../components/DailyTable';
 import TemperatureUnitSwitch from '../components/TemperatureUnitSwitch';
+import HourlyTable from '../components/HourlyTable';
 
 
 
@@ -15,13 +16,13 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSelectedDay, setIsSelectedDay] = useState<Date>(new Date());
   const dispatch = useAppDispatch();
-  const { days, hours, error, hourlyStatus} = useAppSelector(weatherSelector);
+  const { days, hours, error, hourlyStatus, dailyStatus} = useAppSelector(weatherSelector);
   const [temperatureUnit, setTemperatureUnit] = useState<string>(TemperatureUnit.Celsius);
 
   const loadDataFromOpenAPI = useCallback(async () => {
     setIsRefreshing(true);
     await dispatch(fetchDailyData({temperatureUnit: temperatureUnit}));
-         // await dispatch(fetchHourlyData({temperatureUnit: temperatureUnit}));
+    await dispatch(fetchHourlyData({temperatureUnit: temperatureUnit}));
     setIsRefreshing(false);
   }, [temperatureUnit])
 
@@ -34,6 +35,9 @@ const Home = () => {
     <div className='bg-gray-200 w-screen h-screen flex flex-col items-center justify-center mx-0 my-0'>
       <TemperatureUnitSwitch temperatureUnit={temperatureUnit} setTemperatureUnit={setTemperatureUnit}></TemperatureUnitSwitch>
       <DailyTable selectedDay={isSelectedDay} days={days} setIsSelectedDay={setIsSelectedDay}></DailyTable>
+      {hours?.length > 0 && (
+        <HourlyTable selectedDay={isSelectedDay} hours={hours} days={days} setIsSelectedDay={setIsSelectedDay} ></HourlyTable>
+      )}
     </div>
 
   )

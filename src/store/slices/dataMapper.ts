@@ -38,7 +38,7 @@ export const mapHourlyData = (data: any) => {
       time: data.time[index],
       temperature_2m: data.temperature_2m[index],
       apparent_temperature: data.apparent_temperature[index],
-      precipitation: data.precipitation[index],
+      precipitation: data.precipitation_probability[index],
       weathercode: getWeatherCodeDescription(data.weathercode[index]),
       wind_speed_10m: data.wind_speed_10m[index],
       wind_direction_10m: data.wind_direction_10m[index],

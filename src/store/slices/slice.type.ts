@@ -69,3 +69,8 @@ export type TemperatureObj = {
     maxApparentTemperature: number,
     minApparentTemperature: number,
 }
+
+export type HourTemperatureObj = {
+    maxTemperature: number,
+    minTemperature: number,
+}
