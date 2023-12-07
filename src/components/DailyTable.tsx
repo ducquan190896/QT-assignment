@@ -12,7 +12,7 @@ interface DailyTableProps  {
 const DailyTable = ({days, selectedDay, setIsSelectedDay}: DailyTableProps) => {
     
   return (
-    <div className=' my-8 w-2/3 bg-red-200 flex flex-row items-end '>
+    <div className=' my-8 w-2/3 bg-gray-200 flex flex-row items-end '>
         {days?.length > 0 && days.map((day: DailyObj, index) => {
             return (
                 <DayCard selectedDay={selectedDay} day={day} key={index} setIsSelectedDay={setIsSelectedDay}></DayCard>

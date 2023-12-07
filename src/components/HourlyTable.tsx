@@ -64,8 +64,8 @@ const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay}: HourlyTablePr
         >
             {checkPrevOrNextDay(days, selectedDay, "prev") && (
                 <SwiperSlide className='w-40'>
-                    <div className='bg-slate-100 w-22 h-[300px] flex items-center justify-center '>
-                        <button className='flex items-center justify-center' onClick={() => handleMovingDate("prev")}>
+                    <div className='bg-slate-100 w-22 h-[300px] flex items-center justify-center ' >
+                        <button className='h-full w-full flex items-center justify-center' onClick={() => handleMovingDate("prev")}>
                             <p className='text-gray-400 hover:text-green-700'>{moment(selectedDay).subtract(1, 'days').format('ddd Do')}</p>
                         </button>
                     </div>
@@ -81,7 +81,7 @@ const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay}: HourlyTablePr
             {checkPrevOrNextDay(days, selectedDay, "next") && (
                 <SwiperSlide className='w-40'>
                     <div className='bg-slate-100 w-22 h-[300px] flex items-center justify-center'>
-                        <button className='flex items-center justify-center' onClick={() => handleMovingDate("next")}>
+                        <button className='h-full w-full flex items-center justify-center' onClick={() => handleMovingDate("next")}>
                             <p className='text-gray-400 hover:text-green-700'>{moment(selectedDay).add(1, 'days').format('ddd Do')}</p>
                         </button>
                     </div>

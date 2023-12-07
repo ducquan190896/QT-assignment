@@ -36,7 +36,7 @@ const TemperatureUnitSwitch = ({temperatureUnit, setTemperatureUnit} : SwitchPro
             endIcon={isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
             onClick={handleOpenBtn}
         >
-          {temperatureUnit}
+          {temperatureUnit === TemperatureUnit.Celsius ? "°C" : "°F"}
         </Button>
         <Menu
           open={isOpen}
@@ -52,15 +52,17 @@ const TemperatureUnitSwitch = ({temperatureUnit, setTemperatureUnit} : SwitchPro
             onClick={() => {
                 changeTemperatureUnit(TemperatureUnit.Celsius);
             }}
+            className='w-14'
           >
-            Celsius
+            °C
           </MenuItem>
           <MenuItem
             onClick={() => {
                 changeTemperatureUnit(TemperatureUnit.Fahrenheit);
             }}
+            className='w-14'
           >
-            Fahrenheit
+            °F
           </MenuItem>
         </Menu>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import * as ReactIcons from 'react-icons/wi';
-import { WeatherCode } from '../store/slices/slice.type'
+import { WeatherCode } from '../../store/slices/slice.type'
 
 interface WeatherIconProps {
     weatherCode: WeatherCode | null, 
