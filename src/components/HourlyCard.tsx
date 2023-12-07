@@ -1,4 +1,3 @@
-import React from 'react'
 import { DailyObj, HourlyObj } from '../store/slices/slice.type'
 import { WiHumidity  } from "react-icons/wi";
 import { SiRainmeter } from "react-icons/si";
@@ -7,7 +6,7 @@ import HourlyRange from './HourlyRange';
 
 const HourlyCard = ({hour, day}: {hour: HourlyObj, day: DailyObj}) => {
   return (
-    <div className='bg-white w-22 h-[300px] border-x-[1px] border-gray-300 flex flex-col pt-2'>
+    <div className='bg-white w-22 h-[300px] border-x-[1px] border-gray-300 flex flex-col pt-2' data-testid="hourly-card">
         <div className='h-20 mx-auto'>
           <p className=''>{hour.time.slice(11)}</p>
         </div>

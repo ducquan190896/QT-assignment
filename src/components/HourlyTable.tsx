@@ -49,7 +49,7 @@ const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay}: HourlyTablePr
     }
 
   return (
-    <div className='w-2/3  bg-white relative'>
+    <div className='w-2/3  bg-white relative' >
         <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={0}

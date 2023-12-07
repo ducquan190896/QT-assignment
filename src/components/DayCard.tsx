@@ -19,7 +19,7 @@ const DayCard = ({day, selectedDay, setIsSelectedDay}: DayCardProp) => {
     }
     // `${isSelectedDay ?  ' w-1/3 h-[190px] ' : ' w-1/8 h-[120px] '}
   return (
-    <div style={{height: isSelectedDay ? 190 : 120, width: isSelectedDay ? "33%" : "12.5%"}} className={`flex flex-col items-start justify-start bg-white px-2 py-2  border-gray-300 border-x-[1px]`} onClick={handleClick}>
+    <div style={{height: isSelectedDay ? 190 : 120, width: isSelectedDay ? "33%" : "12.5%"}} className={`flex flex-col items-start justify-start bg-white px-2 py-2  border-gray-300 border-x-[1px]`} onClick={handleClick} data-testid="daily-card">
         <p className='text-black font-bold text-lg text-black'>
           {isToday ? "Today" :  moment(day.time).format('ddd Do')}
         </p>

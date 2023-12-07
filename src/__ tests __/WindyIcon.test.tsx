@@ -2,9 +2,7 @@ import '@testing-library/jest-dom'
 import WindyIcon from '../components/WindyIcon';
 import { render, screen } from '@testing-library/react';
 
-test('demo2', () => {
-    expect(true).toEqual(true);
-});
+
 
 
 test('WindyIcon component renders the icon', () => {

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { DailyObj, HourlyObj } from '../store/slices/slice.type'
 import WeatherIcon from './WeatherIcon';
 
@@ -14,7 +13,7 @@ const HourlyRange = ({hour, day}: {hour: HourlyObj, day: DailyObj}) => {
     const height = heightCalculate(hour, day);
 
   return (
-    <div className='flex-1 flex flex-col items-center pt-2'>
+    <div className='flex-1 flex flex-col items-center pt-2' data-testid="hourly-range">
         <div style={{ height: `${height}%` }} className={`bg-white flex items-end`}>
             <div className='flex flex-col'>
                 <div className='mx-auto'>

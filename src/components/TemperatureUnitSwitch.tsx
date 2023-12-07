@@ -28,7 +28,7 @@ const TemperatureUnitSwitch = ({temperatureUnit, setTemperatureUnit} : SwitchPro
     };
 
   return (
-    <div className="absolute top-5 right-5 bg-white  rounded-lg">
+    <div className="absolute top-5 right-5 bg-white  rounded-lg" data-testid="temperature-switch">
         <Button
             size="small"
             color="success"
