@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import weatherSlice from "./slices/weatherSlice"
-import thunk from 'redux-thunk';
 
 export const store = configureStore({
   reducer: {

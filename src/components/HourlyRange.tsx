@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { DailyObj, HourlyObj } from '../store/slices/slice.type'
-import WeatherIcon from './weatherIcon/WeatherIcon';
+import WeatherIcon from './WeatherIcon';
 
 const heightCalculate = (hour: HourlyObj, day: DailyObj) => {
     const maxTemp = day.temperature_2m_max;

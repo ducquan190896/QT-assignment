@@ -1,7 +1,7 @@
 import React from 'react'
 import { DailyObj } from '../store/slices/slice.type'
 import moment from 'moment'
-import WeatherIcon from './weatherIcon/WeatherIcon';
+import WeatherIcon from './WeatherIcon';
 
 interface DayCardProp {
     day: DailyObj,

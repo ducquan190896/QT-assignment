@@ -1,4 +1,3 @@
-import React from 'react'
 import * as ReactIcons from 'react-icons/wi';
 
 const WindyIcon = ({degree, size}: {degree: number, size: number}) => {
@@ -20,7 +19,7 @@ const WindyIcon = ({degree, size}: {degree: number, size: number}) => {
     
         if (direction) {
           const WindIconComponent = (ReactIcons as any)[direction.icon];
-          return <WindIconComponent size={size}/>;
+          return <WindIconComponent data-testid="wind-icon" size={size}/>;
         } else {
           return <div>No wind-direction icon found</div>;
         }
