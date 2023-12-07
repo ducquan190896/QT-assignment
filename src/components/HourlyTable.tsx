@@ -19,16 +19,18 @@ interface HourlyTableProps {
     hours: HourlyObj[],
     days: DailyObj[],
     selectedDay: Date,
-    setIsSelectedDay: React.Dispatch<React.SetStateAction<Date>>
+    setIsSelectedDay: React.Dispatch<React.SetStateAction<Date>>,
+    screenWidth: number
 }
 
 
-const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay}: HourlyTableProps) => {
+const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay, screenWidth}: HourlyTableProps) => {
     const currentTime = new Date();
     const [filterHours, setFilterHours] = useState<HourlyObj[]>([]);
     const [day, setDay] = useState<DailyObj | null>(null);
     const navigationPrevRef = useRef<HTMLButtonElement | null>(null);
     const navigationNextRef = useRef<HTMLButtonElement | null>(null);
+   
 
     useEffect(() => {
         const hoursByDate = filterHoursBySelectedDay(hours, selectedDay, currentTime);
@@ -49,11 +51,11 @@ const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay}: HourlyTablePr
     }
 
   return (
-    <div className='w-2/3  bg-white relative' >
+    <div className='sm:w-[600px] md:w-[600px] lg:w-[1000px]  bg-white relative' >
         <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={0}
-            slidesPerView={10}
+            slidesPerView={screenWidth < 1000 ? 7 : 10}
             navigation={{
                 prevEl: navigationPrevRef.current,
                 nextEl: navigationNextRef.current,

@@ -19,7 +19,7 @@ const WindyIcon = ({degree, size}: {degree: number, size: number}) => {
     
         if (direction) {
           const WindIconComponent = (ReactIcons as any)[direction.icon];
-          return <WindIconComponent data-testid="wind-icon" size={size}/>;
+          return <WindIconComponent data-testid="wind-icon" size={size} color="rgb(77 124 15)"/>;
         } else {
           return <div>No wind-direction icon found</div>;
         }

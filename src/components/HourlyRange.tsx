@@ -17,9 +17,9 @@ const HourlyRange = ({hour, day}: {hour: HourlyObj, day: DailyObj}) => {
         <div style={{ height: `${height}%` }} className={`bg-white flex items-end`}>
             <div className='flex flex-col'>
                 <div className='mx-auto'>
-                    <WeatherIcon size={30} color={"rgb(107 114 128)"} weatherCode={hour.weathercode ?? null}></WeatherIcon>
+                    <WeatherIcon size={30} color={"rgb(163 230 53)"} weatherCode={hour.weathercode ?? null}></WeatherIcon>
                 </div>
-                <p className='font-bold mx-auto'>{Math.round(hour.temperature_2m)}°</p>
+                <p className='text-lime-700 font-bold mx-auto'>{Math.round(hour.temperature_2m)}°</p>
                 <p className='text-sm text-gray-400 mx-auto'>Feel {Math.round(hour.apparent_temperature)}°</p>
             </div>
         </div>

@@ -6,16 +6,17 @@ import DayCard from './DayCard'
 interface DailyTableProps  {
     days: DailyObj[],
     selectedDay: Date,
-    setIsSelectedDay: React.Dispatch<React.SetStateAction<Date>>
+    setIsSelectedDay: React.Dispatch<React.SetStateAction<Date>>,
+    screenWidth: number
 }
 
-const DailyTable = ({days, selectedDay, setIsSelectedDay}: DailyTableProps) => {
-    
+const DailyTable = ({days, selectedDay, setIsSelectedDay, screenWidth}: DailyTableProps) => {
+
   return (
-    <div className=' my-8 w-2/3 bg-gray-200 flex flex-row items-end ' data-testid="daily-table">
+    <div className='my-8 sm:w-[600px] md:w-[600px] lg:w-[1000px] bg-gray-200 flex flex-row items-end justify-center' data-testid="daily-table">
         {days?.length > 0 && days.map((day: DailyObj, index) => {
             return (
-                <DayCard selectedDay={selectedDay} day={day} key={index} setIsSelectedDay={setIsSelectedDay}></DayCard>
+                <DayCard selectedDay={selectedDay} day={day} key={index} setIsSelectedDay={setIsSelectedDay} screenWidth={screenWidth}></DayCard>
             )
         })}
     </div>
