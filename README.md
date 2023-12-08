@@ -5,6 +5,10 @@ This project is developed as a technical assignment for the QT's trainee applica
 # Link
 https://weather-app-drab-nine-44.vercel.app/
 
+## Image demo
+![Alt Text](demoApp2.PNG)
+
+
 ## Features
 
 - Display weather's daily data in Oulu in a table
@@ -38,8 +42,6 @@ Run Test:
 - HTML
 
 
-## Image demo
-![Alt Text](demoApp2.PNG)
 
 
 ## License
