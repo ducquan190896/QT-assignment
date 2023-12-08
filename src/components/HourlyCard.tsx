@@ -11,9 +11,9 @@ const HourlyCard = ({hour, day}: {hour: HourlyObj, day: DailyObj}) => {
           <p className='text-lime-700'>{hour.time.slice(11)}</p>
         </div>
         <HourlyRange hour={hour} day={day}/>
-        <div className='flex flex-col px-2 w-full mt-2'>
+        <div className='flex flex-col px-2 w-full mt-2 lg:px-4'>
             <div className='flex flex-row items-center justify-between w-full mb-[1px]'>
-                <div className='ml-[2px]'>
+                <div className='ml-[3px]'>
                   <SiRainmeter size={15} color="rgb(77 124 15)"/>
                 </div>
                 <p className='text-sm text-lime-700'>{(hour.precipitation) <10 ? " <10" : hour.precipitation}%</p>
@@ -22,9 +22,11 @@ const HourlyCard = ({hour, day}: {hour: HourlyObj, day: DailyObj}) => {
                 <WiHumidity size={22} color="rgb(77 124 15)"/>
                 <p className='text-sm text-lime-700'>{(hour.relative_humidity_2m) < 10 ? " <10" : hour.relative_humidity_2m}%</p>
             </div>
-            <div className='flex flex-row items-center justify-between w-full'>
-                <WindyIcon degree={hour.wind_direction_10m} size={25}/>
-                <p className='text-[12px] text-lime-700'>{hour.wind_speed_10m.toFixed(0)} m/s</p>
+            <div className='flex flex-row items-center justify-between w-full my-[2px]'>
+              <div className='ml-[2px]'>
+                <WindyIcon degree={hour.wind_direction_10m} size={16}/>
+              </div>
+              <p className='text-[12px] text-lime-700'>{hour.wind_speed_10m.toFixed(0)} m/s</p>
             </div>
         </div>
     </div>

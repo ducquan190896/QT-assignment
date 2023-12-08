@@ -27,7 +27,7 @@ const DayCard = ({day, selectedDay, setIsSelectedDay, screenWidth}: DayCardProp)
         </p>
         
         {isSelectedDay ? (
-          <div className='flex flex-row mt-8 mx-auto items-center justify-center px-2'>
+          <div className='flex flex-row mt-8 mx-auto items-center justify-center px-2 lg:w-[300px] lg:justify-between lg:mx-auto'>
             <div className='mt-2 mx-auto'>
               <WeatherIcon size={screenWidth < 1000 ? 38 : 70} color={"rgb(163 230 53)"} weatherCode={day.weathercode ?? null}></WeatherIcon>
             </div>
@@ -35,18 +35,18 @@ const DayCard = ({day, selectedDay, setIsSelectedDay, screenWidth}: DayCardProp)
               <p className='text-lime-700 md:text-2xl lg:text-2xl font-bold mb-6'>{day.temperature_2m_max.toFixed(0)}°</p>
               <p className='text-lime-700 md:text-2xl lg:text-2xl'>{day.temperature_2m_min.toFixed(0)}°</p>
             </div>
-            <div className='flex-1 mx-auto'>
+            <div className='flex-1 mx-auto lg:ml-4'>
               <p className='text-lime-700  md:text-base lg:text-lg'>{day.weathercode?.description}</p>
             </div>
           </div>
           ) : (
-          <div className='flex flex-row items-start justify-between sm:items-center sm:justify-evenly mt-2 '>
+          <div className='flex flex-row items-start justify-between mt-2 lg:w-2/3 md:w-2/3 sm:w-full'>
             <div className='mt-2'>
               <WeatherIcon size={screenWidth < 1000 ? 28 : 44} color={"rgb(163 230 53)"} weatherCode={day.weathercode ?? null}></WeatherIcon>
             </div>
             <div className='flex flex-col items-center justify-center ml-2 md:ml-0'>
-              <p className='text-lime-700  md:text-sm lg:text-lg font-bold'>{day.temperature_2m_max.toFixed(0)}°</p>
-              <p className='text-lime-700  md:text-sm lg:text-lg'>{day.temperature_2m_min.toFixed(0)}°</p>
+              <p className='text-lime-700 lg:text-lg md:text-sm sm:text-xs font-bold'>{day.temperature_2m_max.toFixed(0)}°</p>
+              <p className='text-lime-700 lg:text-lg md:text-sm sm:text-xs'>{day.temperature_2m_min.toFixed(0)}°</p>
             </div>
           </div>
         )}

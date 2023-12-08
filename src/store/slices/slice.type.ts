@@ -32,8 +32,8 @@ export type WeatherCode = {
 export const weatherCodeDescriptions: WeatherCode[] = [
     { code: 0, description: 'Clear sky', icon: 'WiDaySunny' },
     { code: 1, description: 'Mainly clear', icon: 'WiDaySunny' },
-    { code: 2, description: 'Partly cloudy', icon: 'WiDayCloudy' },
-    { code: 3, description: 'Overcast', icon: 'WiDaySunnyOvercast' },
+    { code: 2, description: 'Partly cloudy', icon: 'WiNightCloudy' },
+    { code: 3, description: 'Overcast', icon: 'WiNightCloudy' },
     { code: 45, description: 'Fog and depositing rime fog', icon: 'WiDayFog' },
     { code: 48, description: 'Fog and depositing rime fog', icon: 'WiDayFog' },
     { code: 51, description: 'Light drizzle', icon: 'WiDayRainWind' },
