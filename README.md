@@ -39,7 +39,7 @@ Run Test:
 
 
 ## Image demo
-![Alt Text](demoApp.PNG)
+![Alt Text](demoApp2.PNG)
 
 
 ## License
