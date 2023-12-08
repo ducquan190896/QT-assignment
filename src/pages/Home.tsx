@@ -1,6 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react'
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
+import {useCallback, useEffect, useState} from 'react'
 import { fetchDailyData, fetchHourlyData, weatherSelector } from '../store/slices/weatherSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {TemperatureUnit } from '../store/slices/slice.type';
@@ -32,6 +30,8 @@ const Home = () => {
   
   // fetch data from Open API for hours and days
   const loadDataFromOpenAPI = useCallback(async () => {
+    console.log(isRefreshing);
+    console.log(isLoading);
     setIsRefreshing(true);
     await dispatch(fetchDailyData({temperatureUnit: temperatureUnit}));
     await dispatch(fetchHourlyData({temperatureUnit: temperatureUnit}));
