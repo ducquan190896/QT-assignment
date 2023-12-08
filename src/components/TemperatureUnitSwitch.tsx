@@ -8,6 +8,7 @@ interface SwitchProps {
     setTemperatureUnit: React.Dispatch<React.SetStateAction<string>>
 }
 
+// the component is used to switch the temperature unit between Celsius and Fahranheit
 const TemperatureUnitSwitch = ({temperatureUnit, setTemperatureUnit} : SwitchProps) => {
     const [isOpen, setOpen] = useState<boolean>(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -23,7 +24,6 @@ const TemperatureUnitSwitch = ({temperatureUnit, setTemperatureUnit} : SwitchPro
 
     const changeTemperatureUnit = (temperature: string): void => {
         setTemperatureUnit(temperature);
-        console.log(temperature)
         setOpen(false);
     };
 

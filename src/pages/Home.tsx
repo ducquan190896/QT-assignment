@@ -14,25 +14,23 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSelectedDay, setIsSelectedDay] = useState<Date>(new Date());
   const dispatch = useAppDispatch();
-  const { days, hours, error, hourlyStatus, dailyStatus} = useAppSelector(weatherSelector);
+  const { days, hours} = useAppSelector(weatherSelector);
   const [temperatureUnit, setTemperatureUnit] = useState<string>(TemperatureUnit.Celsius);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+
+    // update the size of window inner height
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
     };
-
-    // Attach the event listener
     window.addEventListener('resize', handleResize);
-
-    // Cleanup the event listener when the component unmounts
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Empty dependency array to run the effect only once on mount
+  }, []);
   
-
+  // fetch data from Open API for hours and days
   const loadDataFromOpenAPI = useCallback(async () => {
     setIsRefreshing(true);
     await dispatch(fetchDailyData({temperatureUnit: temperatureUnit}));
@@ -47,15 +45,20 @@ const Home = () => {
 
   return (
     <div className='bg-gray-200 sm:overflow-x-auto md:overflow-x-auto lg:overflow-x-hidden w-screen h-screen  flex flex-col items-center justify-center mx-0 my-0'>
+
+      {/* the dropdown menu for changing temperature unit (celsius or fahranheit) */}
       <TemperatureUnitSwitch temperatureUnit={temperatureUnit} setTemperatureUnit={setTemperatureUnit}></TemperatureUnitSwitch>
+
+      {/* the table displays the daily data in 7 days */}
       {days?.length > 0 && (
         <DailyTable selectedDay={isSelectedDay} days={days} setIsSelectedDay={setIsSelectedDay} screenWidth={screenWidth}></DailyTable>
       )}
+
+       {/* the table allows to swipe hourly data within a day */}
       {hours?.length > 0 && (
         <HourlyTable selectedDay={isSelectedDay} hours={hours} days={days} setIsSelectedDay={setIsSelectedDay} screenWidth={screenWidth}></HourlyTable>
       )}
     </div>
-
   )
 }
 

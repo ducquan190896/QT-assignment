@@ -1,5 +1,6 @@
 import * as ReactIcons from 'react-icons/wi';
 import { WeatherCode } from '../store/slices/slice.type'
+import { TiCancel } from "react-icons/ti";
 
 interface WeatherIconProps {
     weatherCode: WeatherCode | null, 
@@ -7,9 +8,10 @@ interface WeatherIconProps {
     color: string
 }
 
+// the component is used to display the weather code by its correspondent icon and
 const WeatherIcon = ({weatherCode, size, color} : WeatherIconProps) => {
     if (!weatherCode ) {
-        return <div>weatherCode not found</div>;
+        return <TiCancel size={size} color={color}/>;
     }
 
     const { icon } = weatherCode;
@@ -18,7 +20,7 @@ const WeatherIcon = ({weatherCode, size, color} : WeatherIconProps) => {
     if (WeatherIconComponent) {
       return <WeatherIconComponent data-testid="weather-icon" size={size} color={color} />;
     } else {
-      return <div>Icon not found</div>;
+      return <TiCancel size={size} color={color}/>
     }
 }
 

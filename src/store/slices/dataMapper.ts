@@ -1,8 +1,8 @@
 import { DailyObj, HourlyObj, WeatherCode, weatherCodeDescriptions } from "./slice.type";
 
 
-
- const getWeatherCodeDescription = (code: number): WeatherCode | null => {
+  // get the description for the weather code
+const getWeatherCodeDescription = (code: number): WeatherCode | null => {
     return weatherCodeDescriptions.find((weather) => weather.code === code) ?? null;
 };
 

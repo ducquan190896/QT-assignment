@@ -1,6 +1,7 @@
 import { DailyObj, HourlyObj } from '../store/slices/slice.type'
 import WeatherIcon from './WeatherIcon';
 
+// calculate the hourly temperature with the min and max temperature of the selected day to get the exact height in percentage. the aim is to simulate the increment and decrement by the height inside the column.
 const heightCalculate = (hour: HourlyObj, day: DailyObj) => {
     const maxTemp = day.temperature_2m_max;
     const minTemp = day.temperature_2m_min;
@@ -9,6 +10,7 @@ const heightCalculate = (hour: HourlyObj, day: DailyObj) => {
     return Math.round(heightPercentage);
 }
 
+// the component is used to simulate the increment or decrement of hourly temperature as a column 
 const HourlyRange = ({hour, day}: {hour: HourlyObj, day: DailyObj}) => {
     const height = heightCalculate(hour, day);
 

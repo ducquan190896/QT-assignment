@@ -1,6 +1,7 @@
 import moment from "moment";
 import { DailyObj, HourlyObj } from "../store/slices/slice.type";
 
+// filter hours from the current hour within a day
 export const filterHoursBySelectedDay = (hours: HourlyObj[], selectedDay : Date, currentTime: Date) => {
     if(hours.length <= 0) {
         return [];
@@ -21,6 +22,7 @@ export const filterHoursBySelectedDay = (hours: HourlyObj[], selectedDay : Date,
     return filterHours;
 }
 
+// get the exact day object (type DailyObj) based on the selecte day (type Date). the aim is to get the max and min temperature within the selected day from Open API
 export const filterDayByHourTime = (days: DailyObj[], selectedDay: Date) => {
     const matchingDay = days.find((day) => {
         const dayDate = new Date(day.time);
@@ -29,6 +31,7 @@ export const filterDayByHourTime = (days: DailyObj[], selectedDay: Date) => {
     return matchingDay || null;
 }
 
+// check whether the current day has the previous or the next day in data fetched from Open API
 export const checkPrevOrNextDay = (days : DailyObj[], selectedDay: Date, direction : "prev" | "next") => {
     let chosenDate = direction === "next" ? moment(selectedDay).add(1, 'days').toDate() : moment(selectedDay).subtract(1, 'days').toDate();
     return days.some((day: DailyObj) => {

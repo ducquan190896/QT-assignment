@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is developed as a technical assignment by the QT group . The Weather App is a web application that provides basic functionality to display weather data in Oulu (Finland). It presents the weather information in every hour and every day within 7 days, the user may choose the day on the daily table or can swipe the hourly table to see weather data displaying in detail. The app also allows users to change temperature unit from Celsius to Fahranheit, vice versa.  
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Display weather's daily data in Oulu in a table
+- Swipe weather's hourly data in Oulu within a day. The increment or decrement of hourly data is illustrated in the swiping table by the height.
+- Dropdown menu to change the temperature unit from Celsius to Fahranheit, or vice versa.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Follow these instructions to set up and run the Weather App locally:
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository: `git clone https://github.com/ducquan190896/QT-assignment.git`
+2. Navigate to the project directory: `cd QT-assignment`
+3. Install the dependencies: `npm install`
+4. Start the development server: `npm run dev`
+5. Open your browser and visit `http://localhost:5173/` to access the Weather App.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Run Test:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository: `git clone https://github.com/ducquan190896/QT-assignment.git`
+2. Navigate to the project directory: `cd QT-assignment`
+3. Install the dependencies: `npm install`
+4. run Jest test by: `npm run test`
+
+## Technologies Used
+
+- React: JavaScript library for building user interfaces.
+- Redux/Toolkit: JavaScript library for state management.
+- TailwindCSS: styling.
+- JavaScript
+- Typescript
+- HTML
+
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+

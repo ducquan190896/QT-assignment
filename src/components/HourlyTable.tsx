@@ -23,7 +23,7 @@ interface HourlyTableProps {
     screenWidth: number
 }
 
-
+// the hourly table is to simulate the weather data of every hour in the swiper.
 const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay, screenWidth}: HourlyTableProps) => {
     const currentTime = new Date();
     const [filterHours, setFilterHours] = useState<HourlyObj[]>([]);
@@ -38,10 +38,10 @@ const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay, screenWidth}: 
 
         const day = filterDayByHourTime(days, selectedDay);
         setDay(day);
-        console.log(day);
-        
     }, [selectedDay, hours])
 
+
+    // the method is used for moving to the next or previous day to see hourly data in details.
     const handleMovingDate = (direction : "prev" | "next") => {
         if(direction === "next") {
             setIsSelectedDay(moment(selectedDay).add(1, 'days').toDate())
@@ -60,9 +60,8 @@ const HourlyTable = ({hours, days, selectedDay, setIsSelectedDay, screenWidth}: 
                 prevEl: navigationPrevRef.current,
                 nextEl: navigationNextRef.current,
             }}
-           
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
         >
             {checkPrevOrNextDay(days, selectedDay, "prev") && (
                 <SwiperSlide className='w-40'>

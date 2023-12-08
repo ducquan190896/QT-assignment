@@ -32,12 +32,12 @@ interface FetchHourlyDataPayload {
 export const fetchDailyData = createAsyncThunk<FetchDailyDataPayload, { temperatureUnit: string }, { rejectValue: string }>(
   'weather/fetchDailyData',
   async ({temperatureUnit}, { rejectWithValue }) => {
-    console.log(temperatureUnit)
+    // console.log(temperatureUnit)
     try {
       const response = await axios.get(BASE_URL + '&daily=temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum,weathercode,wind_speed_10m_max,wind_direction_10m_dominant' + "&temperature_unit=" + temperatureUnit);
       const rawData = response.data;
       const formattedData = mapDailyData(rawData);
-      console.log(formattedData)
+      // console.log(formattedData)
       return { data: formattedData };
     } catch (error) {
       return rejectWithValue('Failed to daily data');
@@ -48,12 +48,12 @@ export const fetchDailyData = createAsyncThunk<FetchDailyDataPayload, { temperat
 export const fetchHourlyData = createAsyncThunk<FetchHourlyDataPayload, { temperatureUnit: string }, { rejectValue: string }>(
   'weather/fetchHourlyData',
   async ({temperatureUnit}, { rejectWithValue }) => {
-    console.log(temperatureUnit)
+    // console.log(temperatureUnit)
     try {
       const response = await axios.get(BASE_URL + '&hourly=temperature_2m,apparent_temperature,precipitation_probability,weathercode,wind_speed_10m,wind_direction_10m,visibility,relative_humidity_2m' + "&temperature_unit=" + temperatureUnit);
       const rawData = response.data;
       const formattedData = mapHourlyData(rawData.hourly);
-      console.log(formattedData.length > 0 ? "has data": "no data")
+      // console.log(formattedData.length > 0 ? "has data": "no data")
       return { data: formattedData };
     } catch (error) {
       return rejectWithValue('Failed to hourly data');
@@ -85,7 +85,6 @@ const weatherSlice = createSlice({
       })
       .addCase(fetchHourlyData.fulfilled, (state, action) => {
         state.hourlyStatus = 'succeeded';
-        console.log(action.payload.data)
         state.hours = action.payload.data;
       })
       .addCase(fetchHourlyData.rejected, (state, action) => {
