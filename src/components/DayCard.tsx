@@ -21,7 +21,7 @@ const DayCard = ({day, selectedDay, setIsSelectedDay, screenWidth}: DayCardProp)
     }
 
   return (
-    <div style={{height: isSelectedDay ? 190 : 120, width: isSelectedDay ? "33.3%" : "12.5%"}} className={`flex flex-col items-start justify-start md:justify-center md:items-center sm:justify-center sm:items-center bg-white md:px-0 px-2  py-2  border-gray-300 border-x-[1px]`} onClick={handleClick} data-testid="daily-card">
+    <button style={{height: isSelectedDay ? 190 : 120, width: isSelectedDay ? "33.3%" : "12.5%"}} className={`flex flex-col items-start justify-start md:justify-center md:items-center sm:justify-center sm:items-center bg-white md:px-0 px-2  py-2  border-gray-300 border-x-[1px]`} onClick={handleClick} data-testid="daily-card">
         <p className={`text-lime-700 font-bold ${isSelectedDay ? "lg:text-lg md:text-base sm:text-base" : "lg:text-lg  sm:text-xs mx-auto"}`}>
           {isToday ? "Today" :  moment(day.time).format('ddd Do')}
         </p>
@@ -50,7 +50,7 @@ const DayCard = ({day, selectedDay, setIsSelectedDay, screenWidth}: DayCardProp)
             </div>
           </div>
         )}
-    </div>
+    </button>
   )
 }
 
