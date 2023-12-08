@@ -1,6 +1,9 @@
 # Weather App
 
-This project is developed as a technical assignment by the QT group . The Weather App is a web application that provides basic functionality to display weather data in Oulu (Finland). It presents the weather information in every hour and every day within 7 days, the user may choose the day on the daily table or can swipe the hourly table to see weather data displaying in detail. The app also allows users to change temperature unit from Celsius to Fahranheit, vice versa.  
+This project is developed as a technical assignment by the QT group . The Weather App is a web application that provides basic functionality to display weather data in Oulu (Finland). It presents the weather information in every hour and every day within 7 days, the user may choose the day on the daily table or can swipe the hourly table to see weather data displaying in detail. The app also allows users to change temperature unit from Celsius to Fahranheit, vice versa. 
+
+# Link
+https://weather-app-drab-nine-44.vercel.app/
 
 ## Features
 
